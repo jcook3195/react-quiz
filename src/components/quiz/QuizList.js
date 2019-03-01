@@ -1,13 +1,14 @@
 import React from 'react';
 import QuizSummary from './QuizSummary';
 
-const QuizList = () => {
+const QuizList = ({quizzes}) => {
   return (
     <div className="quiz-list section">
-      <QuizSummary />
-      <QuizSummary />
-      <QuizSummary />
-      <QuizSummary />
+      { quizzes && quizzes.map(quiz => {
+        return (
+          <QuizSummary quiz={quiz} key={quiz.id} />
+        )
+      })}
     </div>
   )
 }
