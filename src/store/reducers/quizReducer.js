@@ -8,7 +8,16 @@ const initState = {
 }
 
 const quizReducer = (state = initState, action) => {
-  return state;
+  switch (action.type) {
+    case 'CREATE_QUIZ':
+      console.log('created quiz', action.quiz);
+      return state;
+    case 'CREATE_QUIZ_ERROR':
+      console.log('create quiz error', action.err);
+      return state;
+    default:
+      return state;
+  }
 }
 
 export default quizReducer;
