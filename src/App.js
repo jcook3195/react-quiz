@@ -5,6 +5,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import QuizDetails from './components/quiz/QuizDetails';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+import CreateQuiz from './components/quiz/CreateQuiz';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route path='/quiz/:id' component={QuizDetails} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
+            <Route path='/create' component={CreateQuiz} />
           </Switch>
         </div>
       </BrowserRouter>
