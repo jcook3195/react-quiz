@@ -4,10 +4,13 @@ import QuizList from '../quiz/QuizList';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import { Redirect } from 'react-router-dom';
 
 class Dashboard extends Component {
   render() {
-    const { quizzes } = this.props;
+    const { quizzes, auth } = this.props;
+
+    if(!auth.uid) return <Redirect to='/signin' />
 
     return (
       <div className="dashboard container">
@@ -27,7 +30,8 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    quizzes: state.firestore.ordered.quizzes
+    quizzes: state.firestore.ordered.quizzes,
+    auth: state.firebase.auth
   }
 }
 
